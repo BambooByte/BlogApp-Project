@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">IT</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/">All Posts <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="signup">Registration</a>
+      <a class="nav-item nav-link" href="login">LogIn</a>
+      
+    </div>
+  </div>
+</nav>
+<br>
+ <div class="container">
+        <h1>SignUp Page</h1>
+
+<form th:action="@{/sign}" th:object="${signupDto}" method="post">
+  
+  <div class="form-group">
+                <label for="userFirstName">UserFirstname:</label>
+                <input type="text" class="form-control" id="userFirstName" th:field="*{userFirstName}" placeholder="Enter userFirstName">
+            </div>
+             <div class="form-group">
+                <label for="userLastName">UserLastname:</label>
+                <input type="text" class="form-control" id="userLastName" th:field="*{userLastName}" placeholder="Enter userLastName">
+            </div>
+            
+            <div class="form-group">
+                <label for="userEmail">Email:</label>
+                <input type="email" class="form-control" id="userEmail" th:field="*{userEmail}" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="pass">Password:</label>
+                <input type="password" class="form-control" id="pass" th:field="*{userPass}" placeholder="Enter Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+  			<a class="btn btn-primary" href="login" >Login</a>
+</form>
+    <p class="fw-bold text-center" th:text="${message}"></p>
+
+</div>
+
+
+
+</body>
+</html>

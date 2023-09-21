@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Blog</title>
+  <script src="https://cdn.tiny.cloud/1/your-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <link rel="stylesheet"
+ href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+ crossorigin="anonymous">
+  </head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">IT</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="dashboard">Posts <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="addpost">New Post</a>
+      <a class="nav-item nav-link" href="comment">Comments</a>
+      <a class="nav-item nav-link" href="logout">LogOut</a>
+    </div>
+  </div>
+</nav>
+<br>
+
+  <h1>Add Blog</h1>
+  <form th:action="@{/blogs}" th:object="${addPost}" method="post">
+    <label for="postTitle">Title:</label>
+    <input type="text" id="postTitle" name="postTitle" th:action="*{postTitle}">
+    <br>
+    <label for="shortDesc">Short Description:</label>
+    <input type="text" id="shortDesc" name="shortDesc" th:action="*{shortDesc}">
+    <br>
+    <label for="content">Content:</label>
+    <textarea id="content" name="content" th:action="*{content}"></textarea>
+    <br>
+    <button type="submit">Submit</button>
+    
+  </form>
+    <script>
+  tinymce.init({
+    selector: '#content'
+  });
+</script>
+    <p th:text="${string}"  style="text-align: center;">
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<p>
+<p th:text="${con.postTitle}">
+<br>
+<p th:text="${con.postShortDes}">
+<br>
+<p th:utext="${con.postContent}">
+
+<br>
+<br>
+<br>
+<h2>Comments</h2>
+<div class="col-md-4" th:each="post : ${comment}">
+      <div class="card mb-4">
+        <div class="card-body">
+          <p class="card-title" th:text="${post.content}" ></p>
+          <p class="card-text" th:text="${post.addedDate}"></p>
+          
+        </div>
+      </div></div>
+<br>
+<br>
+<h1>Leave A Comment</h1>
+<form th:action="@{/addComment}" th:object="${addComment}" method="post">
+<input type="hidden" th:field="*{postId}" th:value="${con.postId}" />
+  <div class="form-group">
+    <label for="addedName">Name:</label>
+    <input type="text" class="form-control" id="addedName" th:field="*{addedName}">
+  </div>
+  <div class="form-group">
+    <label for="addedEmail">Email:</label>
+    <input type="email" class="form-control" id="addedEmail" th:field="*{addedEmail}">
+  </div>
+  <div class="form-group">
+    <label for="content">Comment:</label>
+    <textarea class="form-control" id="content" rows="3" th:field="*{content}"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<p th:text="${str}" >
+
+
+</body>
+</html>

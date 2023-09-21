@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Comment</title>
+<link rel="stylesheet"
+ href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+ crossorigin="anonymous">
+</head>
+<body>
+
+</body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">IT</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="dashboard">Posts <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="addpost">New Post</a>
+      <a class="nav-item nav-link" href="comment">Comments</a>
+      <a class="nav-item nav-link" href="logout">LogOut</a>
+    </div>
+  </div>
+</nav>
+<br>
+      
+      
+      
+       <div class="container mt-3">
+    <h1 class="mb-3">Comments</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                   
+                </div>
+                <div class="card-body">
+                    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Email</th>
+                <th>Comment</th>
+                <th>Added Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  th:each="post,index  : ${lists}">
+                <td th:text="${index.index + 1}"></td>
+                <td th:text="${post.addedEmail}"></td>
+                <td th:text="${post.content}"></td>
+                <td th:text="${post.addedDate}"></td>
+                 <td>
+        <a  class="btn btn-sm btn-danger" th:href="@{/deleteComment/{id}(id=${post.commentId})}">Delete</a>
+      </td>
+            </tr>
+        </tbody>
+        </table>
+        </div></div>></div></div></div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+</html>
